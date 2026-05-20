@@ -64,15 +64,15 @@ def test_navigate_to_help_pages(app):
     # Navigate to Release Notes
     current_url = home.open_release_notes()
     assert release_notes_path in current_url
-    home.switch_back_to_etd_tab()
+    home.switch_back_to_main_tab()
     # Navigate to User Guide
     current_url = home.open_user_guide()
     assert user_guide_path in current_url
-    home.switch_back_to_etd_tab()
+    home.switch_back_to_main_tab()
     # Navigate to Public API Guide
     current_url = home.open_public_api_guide()
     assert public_api_url in current_url
-    home.switch_back_to_etd_tab()
+    home.switch_back_to_main_tab()
     # Navigate to FAQs
     current_url = home.open_freq_asked_questions()
     assert freq_asked_questions_path in current_url

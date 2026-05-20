@@ -28,7 +28,7 @@ scripts/aws-cli configure list-profiles
 
 Default to a read-only profile when available since this skill only reads metrics.
 
-If credentials are expired (AccessDenied / ExpiredToken), tell the user to re-authenticate (e.g., `duo-sso`).
+If credentials are expired (AccessDenied / ExpiredToken), tell the user to re-authenticate (e.g., `your SSO CLI`).
 
 ## Quick start (recommended)
 

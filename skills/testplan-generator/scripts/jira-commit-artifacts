@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec nix shell "github:NixOS/nixpkgs/f8573b9c935cfaa162dd62cc9e75ae2db86f85df#python313" --command python3 "$SCRIPT_DIR/jira_commit_artifacts.py" "$@"
