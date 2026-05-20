@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+DIR="$(dirname "$0")"
+export PYTHONPATH="$DIR${PYTHONPATH:+:$PYTHONPATH}"
+exec nix shell "github:NixOS/nixpkgs/6368eda62c9775c38ef7f714b2555a741c20c72d#python313" "github:NixOS/nixpkgs/6368eda62c9775c38ef7f714b2555a741c20c72d#awscli2" --command python3 "$DIR/_discover_functions.py" "$@"

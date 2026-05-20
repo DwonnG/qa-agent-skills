@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec nix shell "github:NixOS/nixpkgs/6368eda62c9775c38ef7f714b2555a741c20c72d#awscli2" --command aws "$@"
