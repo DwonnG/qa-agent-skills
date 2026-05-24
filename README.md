@@ -2,6 +2,10 @@
 
 Public [Agent Skills](https://agentskills.io) for **platform QA**, **test automation**, and **agentic quality engineering**.
 
+[![Pages](https://github.com/DwonnG/qa-agent-skills/actions/workflows/pages.yml/badge.svg)](https://github.com/DwonnG/qa-agent-skills/actions/workflows/pages.yml)
+
+> **Catalog:** [dwonng.github.io/qa-agent-skills](https://dwonng.github.io/qa-agent-skills/) — auto-generated from each skill's `SKILL.md` frontmatter on every push to `main`.
+
 Skills in this repo are derived from work in internal agent-skills and QA agent monorepos, then **sanitized** (no employer service names, credentials, Jenkins job paths, or embedded repo checkouts).
 
 ## Skills
