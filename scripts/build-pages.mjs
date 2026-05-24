@@ -141,11 +141,22 @@ function renderSkillCard(skill) {
 
 function renderHeroMetrics(skills) {
   const totalBytes = skills.reduce((a, s) => a + s.sizeBytes, 0);
+  // Use the portfolio's .metrics / .metric* tokens so spacing, borders, and
+  // typography match the qa-automation-lab dashboard exactly.
   return `
-    <div class="hero-metrics" role="list">
-      <div role="listitem"><span class="num">${skills.length}</span><span>skills</span></div>
-      <div role="listitem"><span class="num">${formatKb(totalBytes)}</span><span>of SKILL.md</span></div>
-      <div role="listitem"><span class="num">spec</span><span>agentskills.io</span></div>
+    <div class="metrics" aria-label="Catalog summary">
+      <div class="metric">
+        <span class="metric-value">${skills.length}</span>
+        <span class="metric-label">Skills</span>
+      </div>
+      <div class="metric">
+        <span class="metric-value">${formatKb(totalBytes)}</span>
+        <span class="metric-label">SKILL.md</span>
+      </div>
+      <div class="metric">
+        <span class="metric-value">Spec</span>
+        <span class="metric-label">agentskills.io</span>
+      </div>
     </div>
   `;
 }
