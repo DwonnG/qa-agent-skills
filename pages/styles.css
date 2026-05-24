@@ -817,9 +817,29 @@ code {
 .suite-card-head {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* flex-start so a 2-line title (e.g. cloudwatch-metric-comparison)
+     keeps the chip aligned to the first line instead of centering
+     vertically and getting visually crowded. */
+  align-items: flex-start;
   margin-bottom: 0.75rem;
-  gap: 0.5rem;
+  gap: 0.65rem;
+}
+/* Let long hyphenated names wrap inside the flex row without pushing
+   the chip off the card. min-width: 0 lets the h3 actually shrink,
+   overflow-wrap: anywhere breaks at hyphens / mid-word as a safety
+   net so the title never overflows the card. */
+.suite-card-head h3 {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+/* Chip never wraps or shrinks — it sits flush right on its own line
+   width. white-space: nowrap prevents "8.8 KB" from breaking onto
+   two lines when the column is tight. */
+.suite-card-head .status-chip,
+.suite-card-head .layer-pill {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .layer-pill {
   font-size: 0.62rem;
@@ -862,6 +882,22 @@ code {
   font-weight: 600;
   color: var(--text);
   letter-spacing: -0.01em;
+}
+/* Catalog card descriptions — clamp to 4 lines so a long "Use when ..."
+   tail (or any wordy frontmatter) doesn't make one card three times
+   taller than its neighbors. The full text is still in the DOM for
+   screen readers and SEO; clicking the card opens SKILL.md with the
+   complete description. */
+.suite-card-desc {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .suite-tools {
   margin: 0 0 1rem;

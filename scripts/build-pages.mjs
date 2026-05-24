@@ -125,6 +125,22 @@ function formatKb(bytes) {
   return `${(bytes / 1024).toFixed(1)} KB`;
 }
 
+// SKILL.md descriptions are written for agent routing and typically end with
+// a "Use when ..." clause that doubles the length without telling a human
+// what the skill does. For the catalog card we strip that tail so the
+// preview stays a single sentence about the "what". The full description
+// is still authoritative in SKILL.md (linked from the card CTA).
+function shortDescription(description) {
+  const useWhen = description.search(/\.\s+Use\s+(when|this\s+skill)\b/iu);
+  if (useWhen > 0) return description.slice(0, useWhen + 1).trim();
+  // Fall back to the first sentence if the description is still long.
+  if (description.length > 220) {
+    const period = description.indexOf(". ");
+    if (period > 0 && period < 240) return description.slice(0, period + 1);
+  }
+  return description;
+}
+
 function renderSkillCard(skill) {
   const sourceHref = `${REPO_URL}/blob/main/skills/${encodeURIComponent(skill.slug)}/SKILL.md`;
   return `
@@ -133,7 +149,7 @@ function renderSkillCard(skill) {
         <h3>${esc(skill.name)}</h3>
         <span class="status-chip status-chip--idle">${esc(formatKb(skill.sizeBytes))}</span>
       </div>
-      <p class="suite-card-desc">${esc(skill.description)}</p>
+      <p class="suite-card-desc">${esc(shortDescription(skill.description))}</p>
       <p class="suite-cta">View SKILL.md <span class="arrow">&rarr;</span></p>
     </a>
   `;
