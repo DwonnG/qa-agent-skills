@@ -184,7 +184,6 @@ function renderDashboard(skills) {
       <header class="hero">
         <div class="hero-inner">
           <div class="hero-intro">
-            <div class="hero-mark" aria-hidden="true">QA</div>
             <span class="status-badge status-badge--ok">
               <span class="status-dot"></span>
               <span>${skills.length} skills indexed</span>
