@@ -332,6 +332,7 @@ function baseLayout({ title, body }) {
         <span>agent-skills</span>
       </a>
       <div class="nav-links">
+        <a class="nav-back" href="https://dwonng.github.io/#work">&larr; Portfolio</a>
         <a href="${PAGES_BASE}/#skills">Skills</a>
         <a href="${PAGES_BASE}/#install">Install</a>
         <a href="${REPO_URL}" target="_blank" rel="noopener noreferrer">GitHub</a>
